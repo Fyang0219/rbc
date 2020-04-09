@@ -1,0 +1,34 @@
+version: '3.7'
+services:
+  mysql-db:
+    image: mysql:5.7.29
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: feiyang0219
+    ports:
+      - '3306:3306'
+    expose:
+      - '33060'
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+  app:
+    build: .
+    restart: always
+    user: root
+    ports:
+      - "8080:3000"
+    volumes:
+      - .:/app
+    environment:
+      DBUSERNAME: root
+      USERPASS: feiyang0219
+      DBNAME: hubdoc
+      DBPORT: 3306
+      DBHOST: 192.168.99.101
+      NODE_ENV: development
+    depends_on:
+      - mysql-db
+
+volumes:
+  mysql-data:
