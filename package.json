@@ -8,7 +8,7 @@
   "dependencies": {
     "apidoc": "0.20.1",
     "body-parser": "1.19.0",
-    "lodash": "4.17.15",
+    "lodash": "4.17.19",
     "bunyan": "1.8.12",
     "cors": "2.8.5",
     "eslint": "^5.16.0",
